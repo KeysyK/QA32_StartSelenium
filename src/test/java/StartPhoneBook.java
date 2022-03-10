@@ -64,16 +64,43 @@ public class StartPhoneBook {
         wd.findElement(By.cssSelector(""));
         //by tag name
         wd.findElement(By.cssSelector("div"));
+        wd.findElement(By.xpath("//div"));
         wd.findElement(By.cssSelector("a"));
-        //by class name
+        wd.findElement(By.xpath("//a")); //html/body/div/div/a (absolute path)
+        //by class
         wd.findElement(By.cssSelector(".login_login__3EHKB"));
+        wd.findElement(By.xpath("//div[@class='login_login__3EHKB']"));
+        wd.findElement(By.xpath("//*[@class='login_login__3EHKB']"));
+
         //by id
         wd.findElement(By.cssSelector("#root"));
+        wd.findElement(By.xpath("//*[@id='root'"));
         //by atribute
         wd.findElement(By.cssSelector("[placeholder]"));
+        wd.findElement(By.xpath("//*[@placehoder]"));
         wd.findElement(By.cssSelector("[placeholder ='Email']"));
+        wd.findElement(By.xpath("//*[@placeholder='Password']"));
+
         wd.findElement(By.cssSelector("[placeholder *='ma']")); //contains
-        wd.findElement(By.cssSelector("[placeholder ^='E']")); //begins with
+        wd.findElement(By.xpath("//*[contains(@placeholder,'ss')]"));
+
+        wd.findElement(By.cssSelector("[placeholder ^='E']")); //starts with
+        wd.findElement(By.xpath("//*[starts-with(@placeholder,'Pa')]"));
+
         wd.findElement(By.cssSelector("[placeholder $='l']")); //ends with
+        //A few elements
+        wd.findElement(By.xpath("//div[@id='root' and @class='container']"));
+        //Text
+        wd.findElement(By.xpath("//button[text()=' Login']"));
+        //by children
+        wd.findElement(By.xpath("//button[1]"));
+        wd.findElement(By.cssSelector("#customers tr:nth-child(2) td:nth-child(2)"));
+        wd.findElement(By.xpath("//*[@id='customers']//tr[2]/td[2]"));
+        //by parents, ancestors, siblings (axis)
+        wd.findElement(By.xpath("//input[1]/parent::*"));
+        wd.findElement(By.xpath("//input[1]/ancestor::div[1]"));
+        wd.findElement(By.xpath("//input[1]/following-sibling::*"));
+        wd.findElement(By.xpath("//button[2]/preceding-sibling::*"));
+
     }
 }
